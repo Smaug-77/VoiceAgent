@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F2F57B026C9F083BA5FA583E /* Pods_VoiceAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973483063C0D961CCB08E4E9 /* Pods_VoiceAgent.framework */; };
+		F7BD11632EBDD7A40050C368 /* .env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F7BD11622EBDD7A40050C368 /* .env.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -15,6 +16,7 @@
 		973483063C0D961CCB08E4E9 /* Pods_VoiceAgent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoiceAgent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB819C98D6B7823228714CBB /* Pods-VoiceAgent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoiceAgent.debug.xcconfig"; path = "Target Support Files/Pods-VoiceAgent/Pods-VoiceAgent.debug.xcconfig"; sourceTree = "<group>"; };
 		F7BD0E5E2EB858990050C368 /* VoiceAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7BD11622EBDD7A40050C368 /* .env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = .env.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -57,6 +59,7 @@
 		F7BD0E552EB858990050C368 = {
 			isa = PBXGroup;
 			children = (
+				F7BD11622EBDD7A40050C368 /* .env.xcconfig */,
 				F7BD0E602EB858990050C368 /* VoiceAgent */,
 				F7BD0E5F2EB858990050C368 /* Products */,
 				A8040EA7FE154B70DAB13699 /* Pods */,
@@ -136,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BD11632EBDD7A40050C368 /* .env.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,12 +15,6 @@ struct EntranceView: View {
             VStack(spacing: 30) {
                 Image("logo")
                 
-                TextField("输入频道名称", text: $viewModel.channelName)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(.horizontal)
-                    .frame(width: 250, height: 50)
-                    .disabled(viewModel.isLoading)
-                
                 Button(action: viewModel.call) {
                     HStack {
                         if viewModel.isLoading {
@@ -32,10 +26,10 @@ struct EntranceView: View {
                             .foregroundColor(.white)
                     }
                     .frame(width: 250, height: 50)
-                    .background((viewModel.isLoading || viewModel.channelName.isEmpty) ? Color.blue.opacity(0.4) : Color.blue)
+                    .background(viewModel.isLoading ? Color.blue.opacity(0.4) : Color.blue)
                     .cornerRadius(25)
                 }
-                .disabled(viewModel.isLoading || viewModel.channelName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                .disabled(viewModel.isLoading)
                 .padding(.top, 30)
             }
             

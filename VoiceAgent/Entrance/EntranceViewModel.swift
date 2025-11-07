@@ -17,28 +17,31 @@ struct ChatNavigationData: Identifiable, Hashable {
 }
 
 class EntranceViewModel: ObservableObject {
-    @Published var channelName: String = ""
     @Published var navigationData: ChatNavigationData? = nil
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     @Published var showError: Bool = false
     
-//    let uid = Int.random(in: 1000...9999999)
-    let uid = 123456789
+    let uid = Int.random(in: 1000...9999999)
+    
+    /// 从 EnvConfig 获取频道名称
+    private var channelName: String {
+        return EnvConfig.channel
+    }
 
     func call() {
         // 防止重复请求
         guard !isLoading else { return }
         
-        // 验证输入
-        guard !channelName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
-            errorMessage = "请输入频道名称"
+        // 验证配置
+        guard !EnvConfig.appId.isEmpty else {
+            errorMessage = "请在 .env.xcconfig 配置文件中填写正确的 APPID"
             showError = true
             return
         }
         
-        guard !KeyCenter.AG_APP_ID.isEmpty else {
-            errorMessage = "请在KeyCenter.swift配置文件中填写正确的AG_APP_ID"
+        guard !channelName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            errorMessage = "请在 .env.xcconfig 配置文件中填写正确的 CHANNEL"
             showError = true
             return
         }
@@ -47,8 +50,8 @@ class EntranceViewModel: ObservableObject {
         errorMessage = nil
         
         let params = [
-            "appCertificate": KeyCenter.AG_APP_CERTIFICATE,
-            "appId": KeyCenter.AG_APP_ID,
+            "appCertificate": EnvConfig.appSecret,
+            "appId": EnvConfig.appId,
             "channelName": channelName,
             "expire": 86400,
             "src": "iOS",

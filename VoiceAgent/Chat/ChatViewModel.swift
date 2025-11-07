@@ -61,7 +61,7 @@ class ChatViewModel: NSObject, ObservableObject {
     func startRTC() async throws {
         //初始化rtc
         let rtcConfig = AgoraRtcEngineConfig()
-        rtcConfig.appId = KeyCenter.AG_APP_ID
+        rtcConfig.appId = EnvConfig.appId
         rtcConfig.channelProfile = .liveBroadcasting
         rtcConfig.audioScenario = .aiClient
         let rtcEngine = AgoraRtcEngineKit.sharedEngine(with: rtcConfig, delegate: self)
@@ -93,7 +93,7 @@ class ChatViewModel: NSObject, ObservableObject {
     @MainActor
     func startRTM() async throws {
         //初始化rtm
-        let rtmConfig = AgoraRtmClientConfig(appId: KeyCenter.AG_APP_ID, userId: "\(uid)")
+        let rtmConfig = AgoraRtmClientConfig(appId: EnvConfig.appId, userId: "\(uid)")
         rtmConfig.areaCode = [.CN, .NA]
         rtmConfig.presenceTimeout = 30
         rtmConfig.heartbeatInterval = 10
